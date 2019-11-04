@@ -1,9 +1,9 @@
 package com.payments.accounting.controller.api;
 
-import com.payments.accounting.controller.request.CreateAccountRequest;
-import com.payments.accounting.controller.response.CreateAccountResponse;
-import com.payments.accounting.controller.response.Response;
 import com.payments.accounting.model.Account;
+import com.payments.accounting.model.request.CreateAccountRequest;
+import com.payments.accounting.model.response.CreateAccountResponse;
+import com.payments.accounting.model.response.Response;
 import com.payments.accounting.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

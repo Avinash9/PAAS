@@ -17,16 +17,16 @@ CREATE TABLE idempotencyInfo (
 -- DROP TABLE IF EXISTS account;
 CREATE TABLE account (
   id bigint(20) NOT NULL AUTO_INCREMENT,
-  tenantId varchar(10) NOT NULL,
+  tenant varchar(10) NOT NULL,
   accountType varchar(20) NOT NULL,
-  accountStatus tinyint(1) NOT NULL,
+  accountStatus varchar(10) NOT NULL,
   ownerId varchar(100) NOT NULL,
-  accountMetadata varchar(500) NOT NULL,
+  accountMetadata json NOT NULL,
   version bigint(10) NOT NULL,
-  createTimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  updateTimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  createTimestamp timestamp(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3),
+  updateTimestamp timestamp(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3),
   PRIMARY KEY (id),
-  UNIQUE KEY unqOnwerId(ownerId),
+  UNIQUE KEY unqOnwerId(ownerId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- DROP TABLE IF EXISTS accountEventLog;

@@ -1,6 +1,5 @@
-package com.payments.accounting.controller.response;
+package com.payments.accounting.model.response;
 
-import com.payments.accounting.model.ErrorDetails;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -54,6 +53,7 @@ public class Response<T> {
     }
 
     public void addErrorMsgToResponse(String errorCode, String errorMessage, Object errorMessageDetails) {
+
         ErrorDetails errorDetails = new ErrorDetails()
                 .setErrorCode(errorCode)
                 .setErrorMessage(errorMessage)
@@ -65,6 +65,7 @@ public class Response<T> {
     }
 
     public void addErrorMsgToResponse(String errorCode, String errorMessage) {
+
         ErrorDetails errorDetails = new ErrorDetails()
                 .setErrorCode(errorCode)
                 .setErrorMessage(errorMessage)

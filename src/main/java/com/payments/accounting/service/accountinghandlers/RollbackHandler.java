@@ -1,6 +1,6 @@
 package com.payments.accounting.service.accountinghandlers;
 
-import com.payments.accounting.enums.AccountingType;
+import com.payments.accounting.model.request.enums.AccountingType;
 import com.payments.accounting.service.AccountingHandler;
 
 /**

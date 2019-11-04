@@ -1,7 +1,6 @@
-package com.payments.accounting.enums;
+package com.payments.accounting.model.request.enums;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 /**

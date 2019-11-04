@@ -1,9 +1,6 @@
-package com.payments.accounting;
+package com.payments.accounting.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,13 +10,11 @@ import javax.validation.constraints.NotNull;
  * @version $Id: AccountingException.java, v 0.1 2019-10-31 1:09 PM Ankit Thakwani Exp $$
  */
 
-@Data
+@Getter
 @RequiredArgsConstructor
 public class AccountingException extends RuntimeException{
 
     @NotBlank
     private final String code;
-
-    private String message;
 
 }

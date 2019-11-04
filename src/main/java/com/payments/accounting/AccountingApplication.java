@@ -11,6 +11,9 @@ public class AccountingApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AccountingApplication.class, args);
+
+        //Set DNS Cache TTL to 60 seconds
+        java.security.Security.setProperty("networkaddress.cache.ttl" , "60");
     }
 
 

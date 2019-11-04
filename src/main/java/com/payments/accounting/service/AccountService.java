@@ -1,5 +1,6 @@
 package com.payments.accounting.service;
 
+import com.payments.accounting.exception.AccountingException;
 import com.payments.accounting.model.Account;
 
 /**

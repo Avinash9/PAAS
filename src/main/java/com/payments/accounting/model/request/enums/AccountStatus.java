@@ -1,9 +1,7 @@
-package com.payments.accounting.enums;
+package com.payments.accounting.model.request.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.omg.PortableInterceptor.ACTIVE;
-import org.omg.PortableInterceptor.INACTIVE;
 
 /**
  * @author Ankit Thakwani

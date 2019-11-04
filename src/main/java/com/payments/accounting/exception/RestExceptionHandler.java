@@ -1,12 +1,9 @@
-package com.payments.accounting.controller;
+package com.payments.accounting.exception;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.payments.accounting.AccountingException;
-import com.payments.accounting.controller.response.Response;
+import com.payments.accounting.model.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -48,14 +45,13 @@ public class RestExceptionHandler {
 
     }
 
-    @ExceptionHandler({InvalidFormatException.class})
+    @ExceptionHandler({HttpMessageNotReadableException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response handleValidationException(InvalidFormatException e) {
+    public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
 
         String errorCode = "ACN_003";
         Response response = Response.badRequest();
-
-        response.addErrorMsgToResponse(errorCode, exceptionCodeToMessageMap.getProperty(errorCode), e.getOriginalMessage());
+        response.addErrorMsgToResponse(errorCode, exceptionCodeToMessageMap.getProperty(errorCode), e.getMessage());
 
         return response;
 
@@ -78,12 +74,11 @@ public class RestExceptionHandler {
 
         String internalServerExceptionCode = "ACN_004";
 
-        Response response = Response.ok();
+        Response response = Response.internalServerError();
         response.addErrorMsgToResponse(internalServerExceptionCode, exceptionCodeToMessageMap.getProperty(internalServerExceptionCode));
 
         return response;
 
     }
-
 
 }

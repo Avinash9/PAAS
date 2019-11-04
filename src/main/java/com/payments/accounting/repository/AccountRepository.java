@@ -1,7 +1,9 @@
 package com.payments.accounting.repository;
 
 import com.payments.accounting.model.Account;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  * @author Ankit Thakwani
@@ -9,5 +11,12 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface AccountRepository extends CrudRepository<Account, Long> {
 
+    @Query(value = "SELECT /*+ MAX_EXECUTION_TIME(250) */ id, tenant, accountType, accountStatus, ownerId, accountMetadata, version, createTimestamp, updateTimestamp" +
+            " FROM account " +
+            "WHERE ownerId = :ownerId " +
+            "FOR UPDATE ", nativeQuery = true)
+    Account findAccountByOwnerIdUsingLock( @Param("ownerId") String ownerId);
+
     Account findAccountByOwnerId(String ownerId);
+
 }

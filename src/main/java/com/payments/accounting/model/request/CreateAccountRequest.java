@@ -1,9 +1,9 @@
-package com.payments.accounting.controller.request;
+package com.payments.accounting.model.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.payments.accounting.enums.AccountStatus;
-import com.payments.accounting.enums.AccountType;
-import com.payments.accounting.enums.Tenant;
+import com.payments.accounting.model.request.enums.AccountStatus;
+import com.payments.accounting.model.request.enums.AccountType;
+import com.payments.accounting.model.request.enums.Tenant;
 import com.payments.accounting.model.AccountMetadata;
 import lombok.Data;
 import lombok.NoArgsConstructor;

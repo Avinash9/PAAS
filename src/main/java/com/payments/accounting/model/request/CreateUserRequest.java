@@ -1,4 +1,4 @@
-package com.payments.accounting.controller.request;
+package com.payments.accounting.model.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

@@ -1,9 +1,10 @@
 package com.payments.accounting.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.payments.accounting.enums.KycStatus;
+import com.payments.accounting.model.request.enums.KycStatus;
 import lombok.Data;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,8 +22,10 @@ public class AccountMetadata {
 
     private String lastName;
 
+    @Min(value = 1000000000, message = "AccountMetadata.phoneNumber must be at least 10 digit")
     private long phoneNumber;
 
+    @NotNull(message = "AccountMetadata.email cannot be null")
     private String email;
 
 }

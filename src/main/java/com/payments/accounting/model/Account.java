@@ -1,8 +1,8 @@
 package com.payments.accounting.model;
 
-import com.payments.accounting.enums.Tenant;
-import com.payments.accounting.enums.AccountStatus;
-import com.payments.accounting.enums.AccountType;
+import com.payments.accounting.model.request.enums.Tenant;
+import com.payments.accounting.model.request.enums.AccountStatus;
+import com.payments.accounting.model.request.enums.AccountType;
 import lombok.*;
 
 import javax.persistence.*;

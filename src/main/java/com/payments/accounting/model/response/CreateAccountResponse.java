@@ -1,4 +1,4 @@
-package com.payments.accounting.controller.response;
+package com.payments.accounting.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

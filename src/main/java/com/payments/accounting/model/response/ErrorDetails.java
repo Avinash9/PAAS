@@ -1,4 +1,4 @@
-package com.payments.accounting.model;
+package com.payments.accounting.model.response;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
