@@ -1,0 +1,14 @@
+TransactionService
+  - handler Request Value Validation(static) --> Done through Annotations
+  - Fetch Transaction Service handler as per the Money Movement API (Factory Pattern - CREDIT/DEBIT/PREPARE_CREDIT/PREPARE_DEBIT/FINALIZE_CREDIT/FINALIZE_DEBIT)
+  - Begin Transaction Scope
+    - Idempotency Check
+      - If duplicate then build response from metadata and return, else insert entry in idempotency table and continue processing
+    - Take lock on user
+    - handler Request business Validation
+    - do handler money Movement
+    - do handler money movement validation(Sanity)
+  - COMMIT/ROLLBACK
+
+TransactionService
+  
