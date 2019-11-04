@@ -1,5 +1,6 @@
 package com.payments.accounting.service.impl;
 
+import com.payments.accounting.AccountingException;
 import com.payments.accounting.model.Account;
 import com.payments.accounting.repository.AccountRepository;
 import com.payments.accounting.service.AccountService;
@@ -29,13 +30,13 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public Account createAccount(Account account) throws Exception {
+    public Account createAccount(Account account) {
 
         Account fetchedAccount = accountRepository.findAccountByOwnerId(account.getOwnerId());
         if (fetchedAccount == null) {
             return accountRepository.save(account);
         } else {
-            throw new Exception();
+            throw new AccountingException("ACN_001");
         }
 
     }

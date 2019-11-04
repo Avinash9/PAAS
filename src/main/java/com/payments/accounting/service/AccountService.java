@@ -8,6 +8,6 @@ import com.payments.accounting.model.Account;
  */
 public interface AccountService {
 
-    Account createAccount(Account account) throws Exception;
+    Account createAccount(Account account);
 
 }

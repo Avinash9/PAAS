@@ -1,6 +1,5 @@
 package com.payments.accounting.controller.api;
 
-import com.payments.accounting.AccountingException;
 import com.payments.accounting.controller.request.CreateAccountRequest;
 import com.payments.accounting.controller.response.CreateAccountResponse;
 import com.payments.accounting.controller.response.Response;
@@ -32,18 +31,10 @@ public class AccountController {
     @PostMapping(path = "/create")
     public Response addAccount(@Valid @RequestBody CreateAccountRequest request) {
 
-        CreateAccountResponse payload = null;
-        try {
-            Account accountCreated = accountService.createAccount(buildAccount(request));
-            payload = new CreateAccountResponse(accountCreated.getId());
-            return Response.ok().setPayload(payload);
-        } catch(Throwable th) {
-            if(!(th instanceof AccountingException)) {
-               throw new AccountingException("ACN_004");
-            }
-        }
-
+        Account accountCreated = accountService.createAccount(buildAccount(request));
+        CreateAccountResponse payload = new CreateAccountResponse(accountCreated.getId());
         return Response.ok().setPayload(payload);
+
 
     }
 

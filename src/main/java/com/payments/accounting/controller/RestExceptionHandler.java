@@ -72,5 +72,18 @@ public class RestExceptionHandler {
 
     }
 
+    @ExceptionHandler({RuntimeException.class})
+    @ResponseStatus(HttpStatus.OK)
+    public Response handleException(RuntimeException ae) {
+
+        String internalServerExceptionCode = "ACN_004";
+
+        Response response = Response.ok();
+        response.addErrorMsgToResponse(internalServerExceptionCode, exceptionCodeToMessageMap.getProperty(internalServerExceptionCode));
+
+        return response;
+
+    }
+
 
 }
